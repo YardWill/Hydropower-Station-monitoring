@@ -47,7 +47,6 @@ module.exports = {
     },
     methods: {
         login() {
-            console.log(this);
             if (this.name === 'admin' && this.password === 'password' ) {
                 window.location.href = "/";
             } else {

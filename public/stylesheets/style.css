@@ -41,6 +41,7 @@ a {
 
 #contain{
   width: 100%;
+  overflow: auto;
 }
 #titles{
   text-align: center;

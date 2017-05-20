@@ -1,20 +1,25 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import ElementUI from 'element-ui';
-import App from './App.vue';
+import VueResource from 'vue-resource';
+
 import index from './components/index.vue';
+import info from './components/info.vue';
+import alert from './components/alert.vue';
+import mistake from './components/mistake.vue';
+import video from './components/video.vue';
 
 Vue.use(VueRouter);
 Vue.use(ElementUI);
+Vue.use(VueResource);
 
 const $list = document.querySelector('#list');
 
 const list = [
-    { name: '机组监控', to: '/user/qq' },
-    { name: '实时信息', to: '/user/qq' },
-    { name: '实时警报', to: '/user/qq' },
-    { name: '故障记录', to: '/user/qq' },
-    { name: '实时视频', to: '/user/qq' },
+    { name: '实时信息', to: '/info' },
+    { name: '实时警报', to: '/alert' },
+    { name: '故障记录', to: '/mistake' },
+    { name: '实时视频', to: '/video' },
 ];
 
 const temp = () => `
@@ -32,10 +37,18 @@ $list.innerHTML = temp();
 const routes = [{
     path: '/',
     component: index,
-},
-{
-    path: '/user/:id',
-    component: App,
+}, {
+    path: '/info',
+    component: info,
+}, {
+    path: '/alert',
+    component: alert,
+}, {
+    path: '/mistake',
+    component: mistake,
+}, {
+    path: '/video',
+    component: video,
 },
 ];
 
@@ -43,7 +56,7 @@ const router = new VueRouter({
     routes,
 });
 
-const app = new Vue({
+new Vue({
     router,
 }).$mount('#app');
 
