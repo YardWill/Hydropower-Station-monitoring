@@ -1,17 +1,13 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
+import ElementUI from 'element-ui';
 import App from './App.vue';
+import index from './components/index.vue';
 
 Vue.use(VueRouter);
-
+Vue.use(ElementUI);
 
 const $list = document.querySelector('#list');
-
-const index = {
-    template: `<header>
-                    <h1 id="titles">欢迎进入水电站监控系统</h1>
-                </header>`,
-};
 
 const list = [
     { name: '机组监控', to: '/user/qq' },
@@ -21,11 +17,17 @@ const list = [
     { name: '实时视频', to: '/user/qq' },
 ];
 
-$list.innerHTML = list.map(e => `
-    <div>
-        <router-link to="${e.to}"><p>${e.name}</p></router-link>
-    </div>
-`).join(' ');
+const temp = () => `
+    <el-menu class="el-menu-vertical-demo" theme="dark">
+        ${list.map((e, i) => `
+            <div>
+                <router-link to="${e.to}"><el-menu-item index=${i}>${e.name}</el-menu-item></router-link>
+            </div>
+        `).join(' ')}
+    </el-menu>`;
+
+$list.innerHTML = temp();
+
 
 const routes = [{
     path: '/',

@@ -1,13 +1,19 @@
-const router = require('koa-router')()
+const router = require('koa-router')();
 
-router.prefix('/users')
+router.prefix('/users');
 
-router.get('/', function (ctx, next) {
-  ctx.body = 'this is a users response!'
-})
+router.get('/', (ctx, next) => {
+    ctx.body = 'this is a users response!';
+});
 
-router.get('/bar', function (ctx, next) {
-  ctx.body = 'this is a users/bar response'
-})
+router.get('/bar', (ctx, next) => {
+    ctx.body = 'this is a users/bar response';
+});
 
-module.exports = router
+router.get('/login', async (ctx, next) => {
+    await ctx.render('login', {
+        title: 'Hello Koa 2!',
+    });
+});
+
+module.exports = router;

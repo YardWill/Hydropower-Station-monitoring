@@ -10,6 +10,7 @@ module.exports = {
     entry: {
         index: ['./fontend/es6/main.js'],
         vendor: ['vue'],
+        login: ['./fontend/es6/login.js'],
     },
     output: {
         path: path.join(__dirname, '/public/javascripts'),
@@ -19,7 +20,7 @@ module.exports = {
         loaders: [
             { test: /\.css$/, loader: 'css-loader!style-loader' },
             { test: /\.vue$/, loader: 'vue-loader' },
-            { test: /\.js$/, loader: 'babel-loader', include: [resolve('src'), resolve('test')], query: { presets: ['es2015'] } }
+            { test: /\.js$/, loader: 'babel-loader', include: [resolve('src'), resolve('test')], query: { presets: ['es2015'] } },
         ],
     },
     resolve: {
