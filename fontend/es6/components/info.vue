@@ -1,4 +1,4 @@
-  <template>
+<template>
     <el-table :data="list" style="width: 100%">
         <el-table-column prop="name" label="名称">
         </el-table-column>
@@ -18,9 +18,26 @@ module.exports = {
     },
     created() {
         this.$http.get('/json').then((res) => {
-            console.log(res)
-            this.list = res.body;
+            const list = res.body.map(e => {
+                return {
+                    name: e.name,
+                    value: parseInt(Math.random() * 40),
+                }
+            });
+            this.list = list;
         })
+        setInterval(() => {
+            this.$http.get('/json').then((res) => {
+                const list = res.body.map(e => {
+                    return {
+                        name: e.name,
+                        value: parseInt(Math.random() * 40),
+                    }
+                });
+                this.list = list;
+            })
+        }, 5000)
+
     }
 }
 </script>

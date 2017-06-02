@@ -6,11 +6,11 @@ const apikey = 'e051dd33298f24e22220fa69b501d68f';
 // 修改为您要发送的手机号码，多个号码用逗号隔开
 const mobile = '15700084187';
 // 修改为您要发送的短信内容
-const text = '【水电站远程监控系统】水电站出现警报，请及时登入系统查看详细内容。';
+const text = '【水电站管理系统】水电站出现警报，请及时登入系统查看详细内容。';
 // 指定发送的模板编号
 const tpl_id = 1;
 // 指定发送模板的内容
-const tpl_value = { '#code#': '1234', '#company#': 'yunpian' };
+const tpl_value = { '#code#': '1234', '#company#': '水电站管理系统' };
 // 语音短信的内容
 const code = '1234';
 // 查询账户信息https地址
@@ -97,7 +97,7 @@ const sendSms = (phone) => {
 
     send_sms(send_sms_uri, apikey, phone, text);
 
-    send_tpl_sms(send_tpl_sms_uri, apikey, phone, tpl_id, tpl_value);
+    // send_tpl_sms(send_tpl_sms_uri, apikey, phone, tpl_id, tpl_value);
 };
 
 module.exports = sendSms;
