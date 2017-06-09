@@ -30,7 +30,7 @@ describe('User', () => {
             .set('Accept', 'application/json')
             .expect(200)
             .end((err, res) => {
-                res.body.forEach((e) => {
+                res.body.data.forEach((e) => {
                     expect(e).to.have.property('name');
                     expect(e).to.not.equal(null);
                     expect(e).to.have.property('value');

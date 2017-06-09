@@ -8,6 +8,7 @@ import info from './components/info.vue';
 import alert from './components/alert.vue';
 import mistake from './components/mistake.vue';
 import video from './components/video.vue';
+import control from './components/control.vue';
 
 Vue.use(VueRouter);
 Vue.use(ElementUI);
@@ -19,7 +20,7 @@ const list = [
     { name: '实时信息', to: '/info' },
     { name: '实时警报', to: '/alert' },
     { name: '故障记录', to: '/mistake' },
-    { name: '实时视频', to: '/video' },
+    { name: '系统控制', to: '/control' },
 ];
 
 const temp = () => `
@@ -49,6 +50,9 @@ const routes = [{
 }, {
     path: '/video',
     component: video,
+}, {
+    path: '/control',
+    component: control,
 },
 ];
 

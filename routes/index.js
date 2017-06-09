@@ -1,9 +1,11 @@
 const router = require('koa-router')();
 const send = require('./send.js');
 
+let state = true;
+
 router.get('/', async (ctx, next) => {
     await ctx.render('index', {
-        title: 'Hello Koa 2!',
+        title: '水电站远程管理系统',
     });
 });
 
@@ -12,11 +14,26 @@ router.get('/string', async (ctx, next) => {
 });
 
 router.get('/json', async (ctx, next) => {
-    ctx.body = require('./mock/modbus.js');
+    const data = require('./mock/modbus.js');
+    ctx.body = { state, data };
 });
 
 router.get('/alert', async (ctx, next) => {
     ctx.body = require('./mock/alert.js');
+});
+
+router.get('/state', async (ctx, next) => {
+    ctx.body = state;
+});
+
+router.get('/stop', async (ctx, next) => {
+    state = false;
+    ctx.body = { success: true };
+});
+
+router.get('/start', async (ctx, next) => {
+    state = true;
+    ctx.body = { success: true };
 });
 
 router.get('/send', async (ctx, next) => {

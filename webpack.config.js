@@ -30,7 +30,8 @@ module.exports = {
             '@': resolve('src'),
         },
     },
-    devtool: '#cheap-module-eval-source-map',
+    devtool: '#eval',
+    // devtool: '#cheap-module-eval-source-map',
     plugins: [
         // 提取公共文件
         new webpack.optimize.CommonsChunkPlugin({ name: 'vendor', filename: 'vendor.js' }),
@@ -38,10 +39,10 @@ module.exports = {
             'process.env': { NODE_ENV: JSON.stringify('dev') },
         }),
         // 如需压缩js文件，将以下注释去掉
-        // new webpack.optimize.UglifyJsPlugin({
-        //   compress: {
-        //     warnings: false
-        //   }
-        // })
+        new webpack.optimize.UglifyJsPlugin({
+          compress: {
+            warnings: false
+          }
+        })
     ],
 };

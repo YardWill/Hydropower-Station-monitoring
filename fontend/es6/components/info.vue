@@ -18,20 +18,21 @@ module.exports = {
     },
     created() {
         this.$http.get('/json').then((res) => {
-            const list = res.body.map(e => {
+            const list = res.body.data.map(e => {
                 return {
                     name: e.name,
-                    value: parseInt(Math.random() * 40),
+                    value: res.body.state ? parseInt(Math.random() * 40) : 0,
                 }
             });
+            console.log(list)
             this.list = list;
         })
         setInterval(() => {
             this.$http.get('/json').then((res) => {
-                const list = res.body.map(e => {
+                const list = res.body.data.map(e => {
                     return {
                         name: e.name,
-                        value: parseInt(Math.random() * 40),
+                        value: res.body.state ? parseInt(Math.random() * 40) : 0,
                     }
                 });
                 this.list = list;

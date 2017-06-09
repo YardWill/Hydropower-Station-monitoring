@@ -1,4 +1,4 @@
-  <template>
+ <template>
     <el-table :data="list" style="width: 100%">
         <el-table-column prop="startTime" label="故障开始时间">
         </el-table-column>

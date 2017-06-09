@@ -12,7 +12,7 @@ router.get('/bar', (ctx, next) => {
 
 router.get('/login', async (ctx, next) => {
     await ctx.render('login', {
-        title: 'Hello Koa 2!',
+        title: '水电站远程管理系统',
     });
 });
 
