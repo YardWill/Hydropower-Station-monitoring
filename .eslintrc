@@ -1,0 +1,33 @@
+{
+  "parser": "babel-eslint",
+  "extends": "airbnb",
+  "env": {
+    "browser": true,
+    "node": true
+  },
+  "globals": {
+    "window": true
+  },
+  "rules": {
+    "class-methods-use-this": "off",
+    // 允许在任意元素上面绑定事件
+    "jsx-a11y/no-static-element-interactions": "off",
+    // 允许任意类型的 propTypes
+    "react/forbid-prop-types": "off",
+    "react/require-default-props": "off",
+    // 允许不按顺序排列
+    "react/sort-comp": "off",
+    // 允许使用下划线
+    "no-underscore-dangle": "off",
+    "react/prop-types": "off",
+    "no-extra-semi": "off",
+    "no-plusplus": "off"
+  },
+  "settings": {
+    "import/resolver": {
+      "webpack": {
+        "config": "webpack.config.dev.js"
+      }
+    }
+  }
+}
